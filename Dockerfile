@@ -11,8 +11,9 @@ WORKDIR /opt/firefox
 COPY . /opt/firefox/
 
 RUN virtualenv env &&\
-    pip3 install -r requirements.txt &&\
-    chmod +x /opt/firefox/env/bin/activate
+    chmod +x /opt/firefox/env/bin/activate &&\
+	source /opt/firefox/env/bin/activate &&\
+	pip3 install -r requirements.txt
 
 RUN echo 'source /opt/firefox/env/bin/activate' >> ~/.bashrc
 
