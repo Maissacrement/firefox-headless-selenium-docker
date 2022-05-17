@@ -26,5 +26,7 @@ Xvfb :0 -auth ~/.Xauthority $DPI_OPTIONS -screen 0 $XFB_SCREEN >>~/xvfb.log 2>&1
 sleep 2
 
 # finally we can run the VNC-Server based on our just started X-Server
-x11vnc -forever -passwd $VNC_PASSWORD -display :0
-sleep 2
+x11vnc -forever -passwd $VNC_PASSWORD -display :0 &
+sleep 10
+
+python3 /opt/app/conf.py
